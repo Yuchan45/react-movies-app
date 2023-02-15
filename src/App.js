@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Movies from './components/Movies/Movies';
+import Series from './components/Series/Series';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+
+      <hr />
+      {/* En react se utilizan los 'Routes' para decir que cosa cargar segun el link */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/series" element={<Series />} />
+
+        <Route path='*' element={<NotFound />}/>
+
+      </Routes>
     </div>
   );
 }
