@@ -7,13 +7,13 @@ import './Navbar.css';
 
 import {Link} from 'react-router-dom';
 
-function Navbar() {
+function Navbar({ bgRef }) {
   const navRef = useRef();
   
   function showNavBar() {
     navRef.current.classList.toggle("overlay-nav");
+    bgRef.current.classList.toggle("overlay-visible");
   }
-
 
   return (
     <div className='navbar-container'>

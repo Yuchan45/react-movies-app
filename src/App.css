@@ -1,3 +1,18 @@
 * {
     box-sizing: border-box;
 }
+
+.bg-overlay-blur {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    visibility: hidden;
+    filter: blur(1px);
+    position: absolute;
+    opacity: 0.5;
+    transition: all .2s ease;
+}
+
+.overlay-visible {
+    visibility: visible !important;
+}

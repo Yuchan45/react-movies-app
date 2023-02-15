@@ -1,5 +1,6 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
+import { useRef } from 'react'
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -9,9 +10,12 @@ import Trending from './components/Trending/Trending';
 import NotFound from './components/NotFound';
 
 function App() {
+  const bgRef = useRef();
+
   return (
     <div className="App">
-      <Navbar />
+      <div className="bg-overlay-blur" ref={bgRef}></div>
+      <Navbar bgRef={bgRef} />
 
       {/* En react se utilizan los 'Routes' para decir que cosa cargar segun el link */}
       <Routes>
