@@ -1,1 +1,92 @@
+.navbar-container {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #5858589c;
+    backdrop-filter: blur(10px);
+}
 
+.navbar-container > nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #0d0d0d;
+    transition: all .8s ease;
+    transform: translateX(-100vw);
+}
+
+.nav-btn {
+    padding: 5px 5px 2px 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    transition: all .3s ease;
+}
+
+.logo-container {
+    width: 120px;
+}
+
+.logo-container > img {
+    width: 120px;
+}
+
+.overlay-nav {
+    transform: none !important;
+}
+
+.overlay-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-close-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #ee5151;
+}
+
+.avatar-container {
+    z-index: -10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:360px) {
+
+
+}
+
+/* Desktop */
+@media (min-width:768px) {
+
+
+}
