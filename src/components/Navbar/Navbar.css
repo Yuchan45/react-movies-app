@@ -1,14 +1,28 @@
+@font-face {
+    font-family: 'HBO Family Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/src/fonts/hbo-family/HBO-Family.woff');
+}
+
+@font-face {
+    font-family: 'HBO Street';
+    font-style: normal;
+    font-weight: 100;
+    src: url('/src/fonts/street/STREET__.ttf');
+}
+
 .navbar-container {
     position: fixed;
     width: 100vw;
-    height: 50px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background: #5858589c;
+    padding: 22px 27px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.665703781512605) 0%, rgba(255,255,255,0.8869922969187675) 100%);
     backdrop-filter: blur(10px);
 }
 
@@ -18,15 +32,28 @@
     left: 0;
     height: 100vh;
     width: 270px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 2px 8px;
+    background-color: rgb(15, 15, 15);
+    transition: all .3s ease;
+    transform: translateX(-270px);
+    opacity: 0;
+}
+
+.nav-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 5px 27px 27px;
+    flex-wrap: nowrap;
     justify-content: center;
+    gap: 5rem;
+}
+
+.links-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    background-color: #0f0f0f;
-    transition: all .8s ease;
-    transform: translateX(-270px);
-    opacity: 0;
 }
 
 .bg-overlay-blur {
@@ -50,17 +77,18 @@
     background: transparent;
     border: none;
     outline: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.2rem;
     transition: all .3s ease;
 }
 
 .logo-container {
-    width: 120px;
+    width: 100px;
+    padding: 5px 0;
 }
 
 .logo-container > img {
-    width: 120px;
+    width: 100px;
 }
 
 .overlay-nav {
@@ -69,17 +97,37 @@
 }
 
 .overlay-link {
+    text-align: left;
     text-decoration: none;
     font-size: 1.2rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
+    font-family: 'HBO Street';
 }
 
 .nav-close-btn {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    color: #ee5151;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.7);
+    height: 70px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.search-avatar-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    padding: 5px 5px 2px 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
 }
 
 .avatar-container {

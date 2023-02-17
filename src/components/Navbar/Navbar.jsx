@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef } from 'react'
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import Avatar from '@mui/material/Avatar';
 
 import './Navbar.css';
@@ -26,29 +26,39 @@ function Navbar() {
 				<div className='logo-container'>
 					<img src="./images/HBO_MAX_LOGO.png" alt="" />
 				</div>
-
-				<div className="avatar-container">
-					<Avatar
-						alt="Not found"
-						src="./images/chandler-avatar.jpg"
-						sx={{
-						width: 30,
-						height: 30,
-						border: 1,
-						borderColor: 'secondary.main'
-						}}
-					/>
+				
+				<div className="search-avatar-wrapper">
+					<div className="search-container">
+						<FaSearch />
+					</div>
+					<div className="avatar-container">
+						<Avatar
+							alt="Not found"
+							src="./images/chandler-avatar.jpg"
+							sx={{
+							width: 30,
+							height: 30,
+							}}
+							style={{
+								border: '0.1px solid #f85dff'
+							}}
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="bg-overlay-blur" ref={bgRef}></div>
 			<nav ref={navRef} className='nav-aside'>
-				<Link to="/" className='overlay-link'>Home</Link>
-				<Link to="/movies" className='overlay-link'>Movies</Link>
-				<Link to="/series" className='overlay-link'>Series</Link>
-				<Link to="/trending" className='overlay-link'>Trending</Link>
-				<button className="nav-btn nav-close-btn" onClick={showNavBar}>
-					<FaTimes />
-				</button>
+				<div className="nav-wrapper">
+					<button className="nav-btn nav-close-btn" onClick={showNavBar}>
+						<FaTimes />
+					</button>
+					<div className="links-container">
+						<Link to="/" className='overlay-link'>Inicio</Link>
+						<Link to="/movies" className='overlay-link'>Movies</Link>
+						<Link to="/series" className='overlay-link'>Series</Link>
+						<Link to="/trending" className='overlay-link'>Trending</Link>
+					</div>
+				</div>
 			</nav>
 		</>
 	)
