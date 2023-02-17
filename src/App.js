@@ -14,8 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="bg-overlay-blur" ref={bgRef}></div>
-      <Navbar bgRef={bgRef} />
+      <Navbar />
 
       {/* En react se utilizan los 'Routes' para decir que cosa cargar segun el link */}
       <Routes>
