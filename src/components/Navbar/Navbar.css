@@ -23,6 +23,7 @@
     align-items: center;
     padding: 22px 27px;
     backdrop-filter: blur(10px);
+    z-index: 10;
 }
 
 .nav-aside {
@@ -36,6 +37,7 @@
     transition: all .3s ease;
     transform: translateX(-270px);
     opacity: 0;
+    z-index: 12;
 }
 
 .nav-wrapper {
@@ -63,6 +65,7 @@
     position: absolute;
     opacity: 0.7;
     transition: all 0s ease;
+    z-index: 11;
 }
 
 .overlay-visible {

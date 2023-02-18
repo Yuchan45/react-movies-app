@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import YouTube from 'react-youtube';
 
 import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home/Home';
+import Home from './components/Home/Home';
 import Movies from './components/Movies/Movies';
 import Series from './components/Series/Series';
 import Trending from './components/Trending/Trending';
@@ -16,7 +16,6 @@ import tmdbApi from './apis/tmdbApi'
 function App() {
 	// Variables de estado
 	const [movies, setMovies] = useState([]);
-	const [trending, setTrending] = useState([]);
 	const [trailer, setTrailer] = useState(null);
 	const [playing, setPlaying] = useState(false);
 
@@ -27,14 +26,9 @@ function App() {
 			setMovies(data);
 			console.log("Discover >>", data);
 		}
-		const fetchTrending = async (type) => {
-			const data = await tmdbApi.trending(type, 1);
-			setTrending(data);
-			console.log("Trending >>", data);
-		}
 
 		fetchDiscover('movie');
-		fetchTrending('all');
+
 	}, []);
 
 

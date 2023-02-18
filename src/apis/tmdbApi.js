@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.themoviedb.org/3';
-const API_KEY = '612d35ce35f9b346cbfa8fd00595b826';
-const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
-const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
 
+export const API_URL = 'https://api.themoviedb.org/3';
+export const API_KEY = '612d35ce35f9b346cbfa8fd00595b826';
+export const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
+export const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
 
 const tmdbApi = {
     discover: async(type) =>  {

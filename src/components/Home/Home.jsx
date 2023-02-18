@@ -6,9 +6,12 @@ function Home() {
 
 
 	return (
-		<div className="home-container">
-			<img src={require("../../images/banners/snk-banner.jpeg")} alt="" />
-		</div>
+		<>
+			<HeroSlider />
+		</>
+		// <div className="home-container">
+		// 	<img src={require("../../images/banners/snk-banner.jpeg")} alt="" />
+		// </div>
 	)
 }
 
