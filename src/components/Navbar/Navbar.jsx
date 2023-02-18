@@ -24,7 +24,7 @@ function Navbar() {
 				</button>
 
 				<div className='logo-container'>
-					<img src="./images/HBO_MAX_LOGO.png" alt="" />
+					<img src={require("../../images/HBO_Max_Logo_White.png")} alt="" />
 				</div>
 				
 				<div className="search-avatar-wrapper">
@@ -34,7 +34,7 @@ function Navbar() {
 					<div className="avatar-container">
 						<Avatar
 							alt="Not found"
-							src="./images/chandler-avatar.jpg"
+							src={require("../../images/chandler-avatar.jpg")}
 							sx={{
 							width: 30,
 							height: 30,
