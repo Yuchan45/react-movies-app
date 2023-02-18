@@ -24,12 +24,16 @@ function Navbar() {
 				</button>
 
 				<div className='logo-container'>
-					<img src={require("../../images/HBO_Max_Logo_White.png")} alt="" />
+					<Link to="/">
+						<img src={require("../../images/HBO_Max_Logo_White.png")} alt="" />
+					</Link>
 				</div>
 				
 				<div className="search-avatar-wrapper">
 					<div className="search-container">
-						<FaSearch />
+						<Link to="/search">
+							<FaSearch />
+						</Link>
 					</div>
 					<div className="avatar-container">
 						<Avatar
