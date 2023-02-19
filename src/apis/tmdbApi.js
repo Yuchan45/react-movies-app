@@ -65,6 +65,19 @@ const tmdbApi = {
 			console.error(error);
 		}
 	},
+    getGenres: async(type) => {
+        // type can be (movie or tv)
+        try {
+			const response = await axios.get(`${API_URL}/genre/${type}/list`, {
+				params: {
+					api_key: API_KEY
+				}
+			});
+			return response.data.genres;
+		} catch (error) {
+			console.error(error);
+		}
+    },
     test: () => {
         alert("Hola");
     }

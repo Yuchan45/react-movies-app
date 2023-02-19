@@ -11,14 +11,21 @@ import 'swiper/css/effect-fade';
 
 function HeroSlider() {
 	const [trending, setTrending] = useState([]);
+	const [genres, setGenres] = useState([]);
 
 	const fetchTrending = async (type) => {
 		const data = await tmdbApi.trending(type, 1);
 		setTrending(data.slice(0, 4));
 	}
 
+	const fetchGenres = async (type) => {
+		const data = await tmdbApi.getGenres(type);
+		setGenres(data);
+	}
+
 	useEffect(() => {
 		fetchTrending('all');
+		fetchGenres('movie');
 	}, []);
 
 	return (
@@ -41,6 +48,17 @@ function HeroSlider() {
 									<p className="hero-stars">Rating: {Math.round((movie.vote_average) * 10) / 10}</p>
 									<h2 className="hero-title">{movie.title}</h2>
 									<div className="hero-overview">{movie.overview}</div>
+									{
+										movie.genre_ids.map((movieGenre, i) => {
+											{
+												for (let i=0; i < genres.length; i++) {
+													if (genres[i].id == movieGenre) {
+														return <p key={i}>{genres[i].name}</p>
+													}
+												}
+											}
+										})
+									}
 								</div>
 								<button className="hero-trailer">See Trailer</button>
 							</div>
