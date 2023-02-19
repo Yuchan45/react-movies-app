@@ -2,8 +2,48 @@
     height: 90vh;
 }
 
+.img-container {
+    
+}
+
 .hero-slide-img {
     width: 100%;
     height: 90vh;
     object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    padding: 0px 25px;
+    top: 0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 49.02%, rgba(0, 0, 0, 0.008) 52.42%, rgba(0, 0, 0, 0.035) 55.82%, rgba(0, 0, 0, 0.082) 59.22%, rgba(0, 0, 0, 0.15) 62.62%, rgba(0, 0, 0, 0.23) 66.02%, rgba(0, 0, 0, 0.333) 69.41%, rgba(0, 0, 0, 0.443) 72.81%, rgba(0, 0, 0, 0.557) 76.21%, rgba(0, 0, 0, 0.667) 79.61%, rgba(0, 0, 0, 0.77) 83.01%, rgba(0, 0, 0, 0.85) 86.41%, rgba(0, 0, 0, 0.918) 89.8%, rgba(0, 0, 0, 0.965) 93.2%, rgba(0, 0, 0, 0.992) 96.6%, rgb(0, 0, 0) 100%);
+}
+
+.slide-content .information {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+}
+
+.slide-content .information .hero-stars {
+    
+}
+
+.slide-content .information .hero-title {
+    
+}
+
+.slide-content .information .hero-overview {
+    
+}
+
+.slide-content .hero-trailer {
+    
 }

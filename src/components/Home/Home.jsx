@@ -9,10 +9,10 @@ function Home() {
 		<>
 			<HeroSlider />
 		</>
+	)
+}
 		// <div className="home-container">
 		// 	<img src={require("../../images/banners/snk-banner.jpeg")} alt="" />
 		// </div>
-	)
-}
 
 export default Home

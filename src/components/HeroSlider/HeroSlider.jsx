@@ -32,18 +32,21 @@ function HeroSlider() {
 				onSlideChange={() => console.log('slide change')}
 				onSwiper={(swiper) => console.log(swiper)}
 			>
-
 				{
 					trending.map((movie, i) => (
 						<SwiperSlide key={i}>
-							<img src={`${tmdbApi.IMAGE_PATH + movie.backdrop_path}`} alt="" className='hero-slide-img' />
+							<img src={`${tmdbApi.IMAGE_PATH + movie.backdrop_path}`} alt="" className='hero-slide-img'  />
+							<div className="slide-content">
+								<div className="information">
+									<p className="hero-stars">Rating: {Math.round((movie.vote_average) * 10) / 10}</p>
+									<h2 className="hero-title">{movie.title}</h2>
+									<div className="hero-overview">{movie.overview}</div>
+								</div>
+								<button className="hero-trailer">See Trailer</button>
+							</div>
 						</SwiperSlide>
 					))
 				}
-
-				
-
-
 			</Swiper>
 		</div>
 	)
