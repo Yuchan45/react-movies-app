@@ -1,12 +1,17 @@
 import axios from 'axios';
 
 
-export const API_URL = 'https://api.themoviedb.org/3';
-export const API_KEY = '612d35ce35f9b346cbfa8fd00595b826';
-export const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
-export const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
+const API_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '612d35ce35f9b346cbfa8fd00595b826';
+const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
+const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
 
 const tmdbApi = {
+    API_URL: 'https://api.themoviedb.org/3',
+    API_KEY: '612d35ce35f9b346cbfa8fd00595b826',
+    IMAGE_PATH: 'https://image.tmdb.org/t/p/original',
+    URL_IMAGE: 'https://image.tmdb.org/t/p/original',
+    
     discover: async(type) =>  {
 		try {
 			const response = await axios.get(`${API_URL}/discover/${type}`, {
