@@ -40,6 +40,7 @@ function HeroSlider() {
 				pagination={{
 					clickable: true,
 				}}
+				loop={true}
 			>
 				{
 					trending.map((movie, i) => (
