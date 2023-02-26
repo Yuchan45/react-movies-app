@@ -1,13 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import './Home.css'
 import HeroSlider from '../../components/HeroSlider/HeroSlider';
+import ShowsSlider from '../ShowsSlider/ShowsSlider';
 
 function Home() {
 
 
 	return (
+		/* Top Rated Movies */
+		/* Top Rated TV */
 		<>
 			<HeroSlider />
+			<div className="home-sliders">
+				<div className="sliders-top">
+					<h2>Trending</h2>
+					<p>Show More</p>
+				</div>
+				{/* Trending */}
+				<ShowsSlider />
+			</div>
 		</>
 	)
 }

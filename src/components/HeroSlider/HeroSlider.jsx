@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import tmdbApi from '../../apis/tmdbApi'
 import './HeroSlider.css'
 
@@ -24,20 +24,22 @@ function HeroSlider() {
 	}
 
 	useEffect(() => {
-		fetchTrending('all');
+		fetchTrending('movie');
 		fetchGenres('movie');
 	}, []);
 
 	return (
 		<div className="hero-slide">
 			<Swiper
-				pagination={true}
 				modules={[Pagination, EffectFade]} 
 				effect="fade"
 				spaceBetween={0}
 				slidesPerView={1}
 				onSlideChange={() => console.log('slide change')}
 				onSwiper={(swiper) => console.log(swiper)}
+				pagination={{
+					clickable: true,
+				}}
 			>
 				{
 					trending.map((movie, i) => (
@@ -46,21 +48,22 @@ function HeroSlider() {
 							<div className="slide-content">
 								<div className="information">
 									<p className="hero-stars">Rating: {Math.round((movie.vote_average) * 10) / 10}</p>
-									<h2 className="hero-title">{movie.title}</h2>
-									<div className="hero-overview">{movie.overview}</div>
-									{
+									<h2 className="hero-title">{movie.original_title}</h2>
+									<ul className='genres-list'>
+										{
 										movie.genre_ids.map((movieGenre, i) => {
 											{
 												for (let i=0; i < genres.length; i++) {
-													if (genres[i].id == movieGenre) {
-														return <p key={i}>{genres[i].name}</p>
+													if (genres[i].id === movieGenre) {
+														return <li key={i}>{genres[i].name}</li>
 													}
 												}
 											}
 										})
-									}
+										}
+									</ul>
 								</div>
-								<button className="hero-trailer">See Trailer</button>
+								<button className="hero-trailer">Watch Trailer</button>
 							</div>
 						</SwiperSlide>
 					))

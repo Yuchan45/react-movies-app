@@ -1,0 +1,21 @@
+.shows-slide-img {
+    width: 100%;
+}
+
+.home-sliders {
+    padding: 0px 25px;
+}
+
+.sliders-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shows-list {
+
+}
+
+.shows-list .swiper-slide {
+    width: 60%;
+}

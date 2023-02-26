@@ -7,3 +7,7 @@
     height: 100vh; */
 
 }
+
+.swiper-pagination-bullet {
+    background: rgb(121, 121, 121);
+}
