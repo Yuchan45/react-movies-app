@@ -18,7 +18,7 @@ function ShowsSlider() {
 
 	const fetchTrending = async (type) => {
 		const data = await tmdbApi.trending(type, 1);
-		setShows(data.slice(0, 4));
+		setShows(data.slice(0, 15));
 	}
 
 	useEffect(() => {

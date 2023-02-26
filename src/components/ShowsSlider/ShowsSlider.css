@@ -1,21 +1,29 @@
+
 .shows-slide-img {
     width: 100%;
 }
 
-.home-sliders {
-    padding: 0px 25px;
-}
-
-.sliders-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .shows-list {
-
+    background-color: transparent;
 }
 
 .shows-list .swiper-slide {
     width: 60%;
+}
+
+@media (min-width:480px) {
+    .shows-list .swiper-slide {
+        width: 30%;
+    }
+}
+
+/* Desktop */
+@media (min-width:768px) {
+    
+}
+
+@media (min-width:1025px) {
+    .shows-list .swiper-slide {
+        width: 15%;
+    }
 }

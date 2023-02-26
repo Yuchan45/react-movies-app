@@ -22,7 +22,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 22px 27px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(8px);
     z-index: 10;
 }
 
@@ -62,7 +62,7 @@
     height: 100vh;
     background-color: black;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     opacity: 0.7;
     transition: all 0s ease;
     z-index: 11;
