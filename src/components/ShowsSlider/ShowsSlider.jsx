@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 
-function ShowsSlider() {
+function ShowsSlider( {type} ) {
 	const [shows, setShows] = useState([]);
 
 	const fetchTrending = async (type) => {

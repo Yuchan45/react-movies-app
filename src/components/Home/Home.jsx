@@ -12,12 +12,26 @@ function Home() {
 		<>
 			<HeroSlider />
 			<div className="home-sliders">
-				<div className="sliders-top">
-					<h2>Trending</h2>
-					<p>Show More</p>
+				<div className="show-slide">
+					<div className="sliders-top">
+						<h2>Trending</h2>
+						<p>Show More</p>
+					</div>
+					{/* Trending */}
+					<ShowsSlider />
 				</div>
-				{/* Trending */}
-				<ShowsSlider />
+
+				<div className="show-slide">
+					<div className="sliders-top">
+						<h2>Discover</h2>
+						<p>Show More</p>
+					</div>
+					{/* Trending */}
+					<ShowsSlider />
+				</div>
+
+
+
 			</div>
 		</>
 	)
