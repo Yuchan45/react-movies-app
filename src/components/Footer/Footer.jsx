@@ -29,15 +29,18 @@ function Footer() {
                         <AiOutlineTwitter />
                     </a>
                 </li>
-
-
             </ul>
         </div>
         <div className="center">
-
+            <ul>
+                <li className="footer-links">Privacidad</li>
+                <li className="footer-links">Términos</li>
+                <li className="footer-links">Ayuda</li>
+                <li className="footer-links">Discpositivos</li>
+            </ul>
         </div>
         <div className="right">
-
+            <div className="license">© 2023 WarnerMediaDirect, LLC. Todos los derechos reservados.</div>
         </div>
     </div>
   )
