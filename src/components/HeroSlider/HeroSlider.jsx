@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom';
+
 import tmdbApi from '../../apis/tmdbApi'
 import './HeroSlider.css'
 
@@ -63,7 +65,10 @@ function HeroSlider() {
 										}
 									</ul>
 								</div>
-								<button className="hero-trailer">Watch Trailer</button>
+								<Link to={`/movies/${movie.id}`}>
+									<button className="hero-trailer">More Info</button>
+								</Link>
+								
 							</div>
 						</SwiperSlide>
 					))

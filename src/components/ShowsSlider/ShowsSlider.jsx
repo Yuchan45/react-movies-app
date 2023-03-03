@@ -18,17 +18,17 @@ function ShowsSlider({type}) {
 
 	const fetchTrending = async (type) => {
 		const data = await tmdbApi.getTrending(type, 1);
-		setShows(data.slice(0, 15));
+		setShows(data.slice(0, 8));
 	}
 
 	const fetchDiscover = async (type) => {
 		const data = await tmdbApi.discover(type);
-		setShows(data.slice(0, 15));
+		setShows(data.slice(0, 8));
 	}
 
 	const fetchPopularTv = async () => {
 		const data = await tmdbApi.getPopularTv();
-		setShows(data.slice(0, 15));
+		setShows(data.slice(0, 8));
 	}
 
 	const selectType = (type) => {

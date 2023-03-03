@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Movies from './components/Movies/Movies';
+import MovieDetails from './components/MovieDetails/MovieDetails';
 import Series from './components/Series/Series';
 import Trending from './components/Trending/Trending';
 import Search from './components/Search/Search';
@@ -43,6 +44,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/movies" element={<Movies />} />
+				<Route path="/movies/:id" element={<MovieDetails />} />
 				<Route path="/series" element={<Series />} />
 				<Route path="/trending" element={<Trending />} />
 				<Route path="/search" element={<Search />} />
