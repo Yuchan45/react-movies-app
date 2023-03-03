@@ -36,7 +36,7 @@ function Footer() {
                 <li className="footer-links">Privacidad</li>
                 <li className="footer-links">Términos</li>
                 <li className="footer-links">Ayuda</li>
-                <li className="footer-links">Discpositivos</li>
+                <li className="footer-links">Dispositivos</li>
             </ul>
         </div>
         <div className="right">
