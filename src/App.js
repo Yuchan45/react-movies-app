@@ -36,6 +36,7 @@ function App() {
 		<div className="App">
 			<div className="app-container">
 				<Navbar />
+				
 			</div>
 
 			

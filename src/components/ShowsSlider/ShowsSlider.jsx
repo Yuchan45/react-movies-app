@@ -13,16 +13,46 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 
-function ShowsSlider( {type} ) {
+function ShowsSlider({type}) {
 	const [shows, setShows] = useState([]);
 
 	const fetchTrending = async (type) => {
-		const data = await tmdbApi.trending(type, 1);
+		const data = await tmdbApi.getTrending(type, 1);
 		setShows(data.slice(0, 15));
 	}
 
+	const fetchDiscover = async (type) => {
+		const data = await tmdbApi.discover(type);
+		console.log("popular:", data)
+		setShows(data.slice(0, 15));
+	}
+
+	const fetchPopularTv = async () => {
+		const data = await tmdbApi.getPopularTv();
+		console.log("TV:", data)
+		setShows(data.slice(0, 15));
+	}
+
+	const selectType = (type) => {
+		switch (type) {
+			case 'trending':
+				fetchTrending('all');
+			  	break;
+			case 'discover':
+				fetchDiscover('movie');
+			  	break;
+			case 'popularTv':
+				fetchPopularTv();
+				break;
+			default:
+			  	console.log('Error while selecting showSliders type');
+				return -1;
+		  }
+	}
+
 	useEffect(() => {
-		fetchTrending('movie');
+		console.log("type >>>", type);
+		selectType(type);
 	}, []);
 
   

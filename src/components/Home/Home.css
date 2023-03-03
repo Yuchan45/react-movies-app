@@ -28,13 +28,14 @@
     font-weight: 700;
 }
 
-.sliders-top > p {
+.slider-show-more {
     color: rgb(214, 214, 214);
     transition: all .3s ease;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.sliders-top > p:hover {
+.slider-show-more:hover {
     color: #fff;
 }
 

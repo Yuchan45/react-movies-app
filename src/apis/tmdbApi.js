@@ -13,6 +13,7 @@ const tmdbApi = {
     URL_IMAGE: 'https://image.tmdb.org/t/p/original',
     
     discover: async(type) =>  {
+		// type recieves 'movie' or 'tv'
 		try {
 			const response = await axios.get(`${API_URL}/discover/${type}`, {
 				params: {
@@ -39,20 +40,7 @@ const tmdbApi = {
 			console.error(error);
 		}
 	},
-    searchTv: async(searchKey) =>  {
-		try {
-			const response = await axios.get(`${API_URL}/search/tv`, {
-				params: {
-					api_key: API_KEY,
-					query: searchKey
-				}
-			});
-			return response.data.results;
-		} catch (error) {
-			console.error(error);
-		}
-	},
-	trending: async(type, page) =>  {
+	getTrending: async(type, page) =>  {
 		try {
 			const response = await axios.get(`${API_URL}/trending/${type}/week`, {
 				params: {
@@ -78,6 +66,32 @@ const tmdbApi = {
 			console.error(error);
 		}
     },
+	getPopularMovies: async() =>  {
+		try {
+			const response = await axios.get(`${API_URL}/movie/popular`, {
+				params: {
+					api_key: API_KEY,
+					page: 1
+				}
+			});
+			return response.data.results;
+		} catch (error) {
+			console.error(error);
+		}
+	},
+	getPopularTv: async() =>  {
+		try {
+			const response = await axios.get(`${API_URL}/tv/popular`, {
+				params: {
+					api_key: API_KEY,
+					page: 1
+				}
+			});
+			return response.data.results;
+		} catch (error) {
+			console.error(error);
+		}
+	},
     test: () => {
         alert("Hola");
     }

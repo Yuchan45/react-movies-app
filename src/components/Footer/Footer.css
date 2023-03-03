@@ -1,0 +1,18 @@
+.footer-container {
+    width: 100vw;
+    height: 150px;
+    background-color: black;
+    display: flex;
+}
+
+.footer-container .left {
+
+}
+
+.footer-container .center {
+    
+}
+
+.footer-container .right {
+    
+}

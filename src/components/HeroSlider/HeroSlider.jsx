@@ -14,7 +14,7 @@ function HeroSlider() {
 	const [genres, setGenres] = useState([]);
 
 	const fetchTrending = async (type) => {
-		const data = await tmdbApi.trending(type, 1);
+		const data = await tmdbApi.getTrending(type, 1);
 		setTrending(data.slice(0, 4));
 	}
 
