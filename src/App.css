@@ -9,5 +9,9 @@
 }
 
 .swiper-pagination-bullet {
-    background: rgb(121, 121, 121);
+    background: rgb(121, 121, 121) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--swiper-pagination-color,var(--swiper-theme-color)) !important;
 }

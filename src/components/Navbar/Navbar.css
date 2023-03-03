@@ -26,6 +26,10 @@
     z-index: 10;
 }
 
+.on-top {
+    backdrop-filter: blur(0px) !important;
+}
+
 .nav-aside {
     position: fixed;
     top: 0;

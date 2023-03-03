@@ -23,13 +23,11 @@ function ShowsSlider({type}) {
 
 	const fetchDiscover = async (type) => {
 		const data = await tmdbApi.discover(type);
-		console.log("popular:", data)
 		setShows(data.slice(0, 15));
 	}
 
 	const fetchPopularTv = async () => {
 		const data = await tmdbApi.getPopularTv();
-		console.log("TV:", data)
 		setShows(data.slice(0, 15));
 	}
 
@@ -51,7 +49,6 @@ function ShowsSlider({type}) {
 	}
 
 	useEffect(() => {
-		console.log("type >>>", type);
 		selectType(type);
 	}, []);
 

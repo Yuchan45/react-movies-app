@@ -24,7 +24,6 @@ function App() {
 		const fetchDiscover = async (type) => {
 			const data = await tmdbApi.discover(type);
 			setMovies(data);
-			console.log("Discover >>", data);
 		}
 
 		fetchDiscover('movie');

@@ -10,15 +10,26 @@ import {Link} from 'react-router-dom';
 function Navbar() {
 	const navRef = useRef();
 	const bgRef = useRef();
+	const navContainerRef = useRef();
   
 	function showNavBar() {
-	navRef.current.classList.toggle("overlay-nav");
-	bgRef.current.classList.toggle("overlay-visible");
+		navRef.current.classList.toggle("overlay-nav");
+		bgRef.current.classList.toggle("overlay-visible");
 	}
+
+	const navBarOnTop = () => {
+		if (window.pageYOffset <= 70) {
+			navContainerRef.current.classList.add("on-top");
+		} else {
+			navContainerRef.current.classList.remove("on-top");
+		}
+	}
+
+	window.addEventListener('scroll', navBarOnTop);
 
 	return (
 		<>
-			<div className='navbar-container'>
+			<div ref={navContainerRef} className='navbar-container on-top'>
 				<button className="nav-btn" onClick={showNavBar}>
 					<FaBars />
 				</button>
