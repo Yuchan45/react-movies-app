@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const API_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '612d35ce35f9b346cbfa8fd00595b826';
-const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
-const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
+// const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
+// const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
 
 const tmdbApi = {
     API_URL: 'https://api.themoviedb.org/3',
@@ -88,6 +88,20 @@ const tmdbApi = {
 				}
 			});
 			return response.data.results;
+		} catch (error) {
+			console.error(error);
+		}
+	},
+	getById: async(type, id) => {
+		// Parameters: type can be (movie or tv). id is the movie's or tv's id.
+		try {
+			console.log("getByiD Function");
+			const response = await axios.get(`${API_URL}/${type}/${id}`, {
+				params: {
+					api_key: API_KEY,
+				}
+			});
+			return response.data;
 		} catch (error) {
 			console.error(error);
 		}

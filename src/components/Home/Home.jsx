@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Home.css'
 import HeroSlider from '../../components/HeroSlider/HeroSlider';
 import ShowsSlider from '../ShowsSlider/ShowsSlider';

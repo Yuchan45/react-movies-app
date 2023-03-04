@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineYoutube, AiOutlineTwitter } from "react-icons/ai";
 import './Footer.css';
 

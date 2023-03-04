@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ShowsSlider.css';
 import tmdbApi from '../../apis/tmdbApi';
+import {Link} from 'react-router-dom';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,7 +32,7 @@ function ShowsSlider({type}) {
 		setShows(data.slice(0, 8));
 	}
 
-	const selectType = (type) => {
+	const selectType = () => {
 		switch (type) {
 			case 'trending':
 				fetchTrending('all');
@@ -66,7 +67,9 @@ function ShowsSlider({type}) {
 				{
 					shows.map((show, i) => (
 						<SwiperSlide key={i}>
-							<img src={`${tmdbApi.IMAGE_PATH + show.poster_path}`} alt="" className='shows-slide-img'  />
+							<Link to={`/movies/${show.id}`}>
+								<img src={`${tmdbApi.IMAGE_PATH + show.poster_path}`} alt="" className='shows-slide-img'  />
+							</Link>
 						</SwiperSlide>
 					))
 				}

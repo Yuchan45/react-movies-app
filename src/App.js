@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -12,24 +12,8 @@ import Trending from './components/Trending/Trending';
 import Search from './components/Search/Search';
 import NotFound from './components/NotFound';
 
-import tmdbApi from './apis/tmdbApi'
-
 function App() {
-	// Variables de estado
-	const [movies, setMovies] = useState([]);
-	const [trailer, setTrailer] = useState(null);
-	const [playing, setPlaying] = useState(false);
 
-
-	useEffect(() => {
-		const fetchDiscover = async (type) => {
-			const data = await tmdbApi.discover(type);
-			setMovies(data);
-		}
-
-		fetchDiscover('movie');
-
-	}, []);
 
 
 	return (

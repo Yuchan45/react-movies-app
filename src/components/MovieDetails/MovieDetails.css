@@ -1,0 +1,45 @@
+
+
+.movie-details-container {
+    position: relative;
+    width: 100vw;
+    background-color: black;
+}
+
+.movie-details-container .background-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.background-container .movie-banner {
+    width: 100%;
+    height: 45vh;
+}
+
+.background-container .movie-banner > img {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+}
+
+.background-container .banner-overlay {
+    position: absolute;
+    top: 0;
+    height: 45vh;
+    width: 100vw;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(20,20,20,1) 100%);
+}
+
+.background-container .banner-bottom {
+    width: 100%;
+    min-height: 65vh;
+    height: auto;
+    background-color: #141414;
+}
+
+.movie-details-container .movie-information-wrapper{
+    position: relative;
+    color: white;
+}
+

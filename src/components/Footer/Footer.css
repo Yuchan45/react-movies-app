@@ -60,6 +60,7 @@
 }
 
 .footer-container .center > ul .footer-links {
+    cursor: pointer;
     transition: all .3s ease;
 }
 
