@@ -32,7 +32,8 @@ function ShowsSlider({type}) {
 		setShows(data.slice(0, 8));
 	}
 
-	const selectType = () => {
+
+	useEffect(() => {
 		switch (type) {
 			case 'trending':
 				fetchTrending('all');
@@ -46,12 +47,33 @@ function ShowsSlider({type}) {
 			default:
 			  	console.log('Error while selecting showSliders type');
 				return -1;
-		  }
-	}
-
-	useEffect(() => {
-		selectType(type);
+		}
 	}, []);
+
+
+	const SlideImage = ({ show }) => {
+		let showType = '';
+		switch (type) {
+			case 'trending':
+				showType = show.media_type;
+			  	break;
+			case 'discover':
+				showType = (show.number_of_episodes == undefined) ? 'movie' : 'tv';
+			  	break;
+			case 'popularTv':
+				showType = 'tv';
+				break;
+			default:
+			  	console.log('Error while selecting show type (movie or tv)');
+				return -1;
+		}
+
+		return (
+			<Link to={`/${showType}/${show.id}`}>
+				<img src={`${tmdbApi.IMAGE_PATH + show.poster_path}`} alt="" className='shows-slide-img'  />
+			</Link>
+		)
+	}
 
   
 	return (
@@ -67,15 +89,14 @@ function ShowsSlider({type}) {
 				{
 					shows.map((show, i) => (
 						<SwiperSlide key={i}>
-							<Link to={`/movies/${show.id}`}>
-								<img src={`${tmdbApi.IMAGE_PATH + show.poster_path}`} alt="" className='shows-slide-img'  />
-							</Link>
+							<SlideImage show={show} />
 						</SwiperSlide>
 					))
 				}
 			</Swiper>
 		</div>
 	)
+
 }
 
 export default ShowsSlider

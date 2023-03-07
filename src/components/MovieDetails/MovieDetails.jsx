@@ -14,6 +14,7 @@ function MovieDetails() {
 	const fetchMovie = async (type, id) => {
 		const data = await tmdbApi.getById(type, id);
 		console.log("data >>: ", data);
+		console.log("backdropPath: ", data.backdrop_path);
 		setMovie(data);
 	};
 
@@ -25,7 +26,7 @@ function MovieDetails() {
 		<div className="movie-details-container">
 			<div className="background-container">
 				<div className="movie-banner">
-					<img src={`${tmdbApi.IMAGE_PATH + movie.backdrop_path}`} alt="" />
+					<img src={movie.backdrop_path ? `${tmdbApi.IMAGE_PATH + movie.backdrop_path}` : '../../images/not-found-banner.png'} alt="../../images/HBO_Max_Logo.png" />
 				</div>
 				<div className="banner-overlay"></div>
 				<div className="banner-bottom"></div>
