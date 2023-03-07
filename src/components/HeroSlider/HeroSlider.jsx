@@ -13,7 +13,8 @@ import 'swiper/css/effect-fade';
 
 function HeroSlider() {
 	const [trending, setTrending] = useState([]);
-	const [genres, setGenres] = useState([]);
+	const [movieGenres, setMovieGenres] = useState([]);
+	const [tvGenres, setTvGenres] = useState([]);
 
 	const fetchTrending = async (type) => {
 		const data = await tmdbApi.getTrending(type, 1);
@@ -22,13 +23,40 @@ function HeroSlider() {
 
 	const fetchGenres = async (type) => {
 		const data = await tmdbApi.getGenres(type);
-		setGenres(data);
+		(type=='movie') ? setMovieGenres(data) : setTvGenres(data);
+		console.log("Genres: ", data)
 	}
 
 	useEffect(() => {
-		fetchTrending('movie');
+		fetchTrending('all');
 		fetchGenres('movie');
+		fetchGenres('tv');
 	}, []);
+
+
+	const TvMovieGenres = ({ show, index }) => {
+		console.log(show)
+		if (show.media_type == 'tv') {
+			return show.genre_ids.map((showGenre) => {
+				for (let i=0; i < tvGenres.length; i++) {
+					if (tvGenres[i].id === showGenre) {
+						console.log("tv", tvGenres[i].name)
+						return <li key={index}>{tvGenres[i].name}</li>
+					}
+				}
+			})
+		} else {
+			return show.genre_ids.map((showGenre, index) => {
+				for (let i=0; i < movieGenres.length; i++) {
+					if (movieGenres[i].id === showGenre) {
+						console.log("movie", tvGenres[i].name)
+						return <li key={index}>{movieGenres[i].name}</li>
+					}
+				}
+			})
+		}
+	}
+
 
 	return (
 		<div className="hero-slide">
@@ -44,28 +72,18 @@ function HeroSlider() {
 				loop={true}
 			>
 				{
-					trending.map((movie, i) => (
+					trending.map((show, i) => (
 						<SwiperSlide key={i}>
-							<img src={`${tmdbApi.IMAGE_PATH + movie.backdrop_path}`} alt="" className='hero-slide-img'  />
+							<img src={`${tmdbApi.IMAGE_PATH + show.backdrop_path}`} alt="" className='hero-slide-img'  />
 							<div className="slide-content">
 								<div className="information">
-									<p className="hero-stars">Rating: {Math.round((movie.vote_average) * 10) / 10}</p>
-									<h2 className="hero-title">{movie.original_title}</h2>
+									<p className="hero-stars">Rating: {Math.round((show.vote_average) * 10) / 10}</p>
+									<h2 className="hero-title">{(show) ? show.original_title || show.name || show.original_name : 'No Title'}</h2>
 									<ul className='genres-list'>
-										{
-										movie.genre_ids.map((movieGenre, i) => {
-											{
-												for (let i=0; i < genres.length; i++) {
-													if (genres[i].id === movieGenre) {
-														return <li key={i}>{genres[i].name}</li>
-													}
-												}
-											}
-										})
-										}
+										<TvMovieGenres show={show} i={i} />
 									</ul>
 								</div>
-								<Link to={`/movies/${movie.id}`}>
+								<Link to={`/${show.media_type}/${show.id}`}>
 									<button className="hero-trailer">More Info</button>
 								</Link>
 								
