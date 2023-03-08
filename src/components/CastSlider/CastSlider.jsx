@@ -28,11 +28,11 @@ function CastSlider({ movieId }) {
 	}, []);
 
     const SlideImage = ({ actor }) => {
-        const url = actor.profile_path ? tmdbApi.IMAGE_PATH + actor.profile_path : "../../images/cast-no-profile.jpg";
+        const url = actor.profile_path ? tmdbApi.IMAGE_PATH + actor.profile_path : require("./images/cast-no-profile.jpg");
 
 		return (
             <div className="actor-slide-card">
-                <img src={url} alt="../../images/cast-no-profile.jpg" className='cast-slide-img'  />
+                <img src={url} alt="Image Not Found" className='cast-slide-img'  />
                 <p className="actor-name">{actor ? actor.name || actor.original_name : 'No name'}</p>
             </div>
 		)
