@@ -52,9 +52,9 @@ function MovieDetails() {
 						</ul>
 						<p>{movie ? movie.overview : 'No summary'}</p>
 					</div>
-				</div>
-				<div className="cast-section">
-					<CastSlider movieId={id} />
+					<div className="cast-section">
+						<CastSlider movieId={id} />
+					</div>
 				</div>
 			</div>
 			<div>

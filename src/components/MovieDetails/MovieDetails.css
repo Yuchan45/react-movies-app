@@ -33,7 +33,7 @@
 
 .background-container .banner-bottom {
     width: 100%;
-    min-height: 55vh;
+    /* min-height: 55vh; */
     height: auto;
     background-color: #141414;
 }
@@ -60,7 +60,7 @@
 }
 
 .movie-data .movie-data-top {
-    
+    padding: 0 15px;
 }
 
 .movie-data .movie-data-top > h1 {
