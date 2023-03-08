@@ -7,20 +7,39 @@ import { Link } from "react-router-dom";
 
 import tmdbApi from "../../apis/tmdbApi";
 
+import Footer from '../Footer/Footer'
+
 function MovieDetails() {
 	const { id } = useParams();
 	const [movie, setMovie] = useState({});
+	const [movieGenres, setMovieGenres] = useState([]);
 
 	const fetchMovie = async (type, id) => {
 		const data = await tmdbApi.getById(type, id);
-		console.log("data >>: ", data);
-		console.log("backdropPath: ", data.backdrop_path);
 		setMovie(data);
 	};
 
+	const fetchGenres = async (type) => {
+		const data = await tmdbApi.getGenres(type);
+		setMovieGenres(data);
+	}
+
 	useEffect(() => {
 		fetchMovie("movie", id);
+		fetchGenres('movie');
 	}, []);
+
+	const MovieGenres = ({ movie }) => {
+		console.log(movie);
+		return movie.genres.map((movieGenre, index) => {
+			for (let i=0; i < movieGenres.length; i++) {
+				if (movieGenres[i].id === movieGenre) {
+					return <li key={index}>{movieGenres[i].name}</li>
+				}
+			}
+		})
+	}
+
 
 	return (
 		<div className="movie-details-container">
@@ -37,10 +56,13 @@ function MovieDetails() {
 				</div>
 				<div className="movie-data">
 					<div className="movie-data-top">
-						<h1>Title</h1>
+						<h1>{movie ? movie.original_title || movie.name || movie.original_name : 'No Title'}</h1>
 						<ul>
-						<li>Genre1</li>
-						<li>Genre2</li>
+							{
+								movie.genres.map((genre, i) => {
+									<li key={i}>{genre.name}</li>
+								})
+							}
 						</ul>
 						<p>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum

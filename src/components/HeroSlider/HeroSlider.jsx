@@ -24,7 +24,6 @@ function HeroSlider() {
 	const fetchGenres = async (type) => {
 		const data = await tmdbApi.getGenres(type);
 		(type=='movie') ? setMovieGenres(data) : setTvGenres(data);
-		console.log("Genres: ", data)
 	}
 
 	useEffect(() => {
@@ -34,13 +33,11 @@ function HeroSlider() {
 	}, []);
 
 
-	const TvMovieGenres = ({ show, index }) => {
-		console.log(show)
+	const TvMovieGenres = ({ show }) => {
 		if (show.media_type == 'tv') {
-			return show.genre_ids.map((showGenre) => {
+			return show.genre_ids.map((showGenre, index) => {
 				for (let i=0; i < tvGenres.length; i++) {
 					if (tvGenres[i].id === showGenre) {
-						console.log("tv", tvGenres[i].name)
 						return <li key={index}>{tvGenres[i].name}</li>
 					}
 				}
@@ -49,7 +46,6 @@ function HeroSlider() {
 			return show.genre_ids.map((showGenre, index) => {
 				for (let i=0; i < movieGenres.length; i++) {
 					if (movieGenres[i].id === showGenre) {
-						console.log("movie", tvGenres[i].name)
 						return <li key={index}>{movieGenres[i].name}</li>
 					}
 				}
@@ -80,7 +76,7 @@ function HeroSlider() {
 									<p className="hero-stars">Rating: {Math.round((show.vote_average) * 10) / 10}</p>
 									<h2 className="hero-title">{(show) ? show.original_title || show.name || show.original_name : 'No Title'}</h2>
 									<ul className='genres-list'>
-										<TvMovieGenres show={show} i={i} />
+										<TvMovieGenres show={show} />
 									</ul>
 								</div>
 								<Link to={`/${show.media_type}/${show.id}`}>

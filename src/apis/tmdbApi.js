@@ -95,7 +95,6 @@ const tmdbApi = {
 	getById: async(type, id) => {
 		// Parameters: type can be (movie or tv). id is the movie's or tv's id.
 		try {
-			console.log("getByiD Function");
 			const response = await axios.get(`${API_URL}/${type}/${id}`, {
 				params: {
 					api_key: API_KEY,
