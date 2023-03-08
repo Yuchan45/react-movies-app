@@ -57,6 +57,10 @@ function MovieDetails() {
 					<CastSlider movieId={id} />
 				</div>
 			</div>
+			<div>
+				<p></p>
+			</div>
+			<Footer />
 		</div>
 	);
 }

@@ -3,13 +3,13 @@
 .movie-details-container {
     position: relative;
     width: 100vw;
-    background-color: black;
+    background-color: #141414;
 }
 
 .movie-details-container .background-container {
     position: absolute;
     width: 100%;
-    height: 100%;
+    background-color: #141414;
 }
 
 .background-container .movie-banner {
@@ -41,14 +41,14 @@
 .movie-details-container .movie-information-wrapper {
     position: relative;
     color: white;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
     align-items: center;
-    padding: 0 15px;
+    padding: 150px 15px 0;
 }
 
 .movie-information-wrapper .poster-image {

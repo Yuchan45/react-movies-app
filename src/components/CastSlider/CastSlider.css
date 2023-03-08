@@ -9,14 +9,14 @@
 }
 
 .cast-slider .swiper-slide {
-    width: 60%;
+    width: 30%;
 }
 
 .actor-name {
-    font-size: .8rem;
+    font-size: .6rem;
     margin: 0;
     padding: 0;
-    color: black;
+    color: #bdbdbd;
 }
 
 .actor-slide-card {
