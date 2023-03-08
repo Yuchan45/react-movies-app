@@ -29,17 +29,6 @@ function MovieDetails() {
 		fetchGenres('movie');
 	}, []);
 
-	const MovieGenres = ({ movie }) => {
-		console.log(movie);
-		return movie.genres.map((movieGenre, index) => {
-			for (let i=0; i < movieGenres.length; i++) {
-				if (movieGenres[i].id === movieGenre) {
-					return <li key={index}>{movieGenres[i].name}</li>
-				}
-			}
-		})
-	}
-
 
 	return (
 		<div className="movie-details-container">
@@ -59,15 +48,17 @@ function MovieDetails() {
 						<h1>{movie ? movie.original_title || movie.name || movie.original_name : 'No Title'}</h1>
 						<ul>
 							{
-								movie.genres.map((genre, i) => {
-									<li key={i}>{genre.name}</li>
+								// Por un tema de los ciclos de renderizado, hay que preguntar si el array existe antes.
+								// De no hacerlo, creo que trata de hacerf el map sobre el array aun no creado y muere.
+								movie.genres?.map((genre, i) => {
+									return <li key={i}>{genre.name}</li>
 								})
 							}
 						</ul>
 						<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
-						eveniet deleniti dignissimos. Dolor numquam facere, dignissimos
-						illo provident sapiente fugit vitae amet porro, totam inventore?
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+							eveniet deleniti dignissimos. Dolor numquam facere, dignissimos
+							illo provident sapiente fugit vitae amet porro, totam inventore?
 						</p>
 					</div>
 				</div>
