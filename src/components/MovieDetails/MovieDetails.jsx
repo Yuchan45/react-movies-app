@@ -7,26 +7,21 @@ import { Link } from "react-router-dom";
 
 import tmdbApi from "../../apis/tmdbApi";
 
-import Footer from '../Footer/Footer'
+import CastSlider from '../CastSlider/CastSlider';
+import Footer from '../Footer/Footer';
 
 function MovieDetails() {
 	const { id } = useParams();
 	const [movie, setMovie] = useState({});
-	const [movieGenres, setMovieGenres] = useState([]);
+	
 
 	const fetchMovie = async (type, id) => {
 		const data = await tmdbApi.getById(type, id);
 		setMovie(data);
 	};
 
-	const fetchGenres = async (type) => {
-		const data = await tmdbApi.getGenres(type);
-		setMovieGenres(data);
-	}
-
 	useEffect(() => {
 		fetchMovie("movie", id);
-		fetchGenres('movie');
 	}, []);
 
 
@@ -55,12 +50,11 @@ function MovieDetails() {
 								})
 							}
 						</ul>
-						<p>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
-							eveniet deleniti dignissimos. Dolor numquam facere, dignissimos
-							illo provident sapiente fugit vitae amet porro, totam inventore?
-						</p>
+						<p>{movie ? movie.overview : 'No summary'}</p>
 					</div>
+				</div>
+				<div className="cast-section">
+					<CastSlider movie={movie} movieId={id} />
 				</div>
 			</div>
 		</div>

@@ -105,6 +105,19 @@ const tmdbApi = {
 			console.error(error);
 		}
 	},
+	getCastingMembers: async(movieId) => {
+		try {
+			const response = await axios.get(`${API_URL}/movie/${movieId}/credits`, {
+				params: {
+					api_key: API_KEY,
+				}
+			});
+			console.log(response.data)
+			return response.data;
+		} catch (error) {
+			console.error(error);
+		}
+	},
     test: () => {
         alert("Hola");
     }
