@@ -96,18 +96,9 @@
     color: #bdbdbd;
 }
 
-.movie-data .cast-section {
-
+.cast-section {
+    padding: 0 15px;
+    width: 100vw;
+    text-align: left;
 }
 
-.movie-data .cast-section > h3 {
-
-}
-
-.movie-data .cast-section > ul {
-
-}
-
-.movie-data .cast-section > ul li {
-
-}

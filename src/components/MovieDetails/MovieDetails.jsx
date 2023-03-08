@@ -54,7 +54,7 @@ function MovieDetails() {
 					</div>
 				</div>
 				<div className="cast-section">
-					<CastSlider movie={movie} movieId={id} />
+					<CastSlider movieId={id} />
 				</div>
 			</div>
 		</div>
