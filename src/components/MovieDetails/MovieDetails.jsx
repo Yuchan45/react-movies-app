@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
 
+import YouTube from 'react-youtube';
+
 import "./MovieDetails.css";
 import tmdbApi from "../../apis/tmdbApi";
 
@@ -56,13 +58,18 @@ function MovieDetails() {
 					</div>
 				</div>
 			</div>
-			<div className="show-slide">
-				<div className="sliders-top">
-					<h2>Trending</h2>
-					<Link to="/trending" className='slider-show-more'>Show More</Link>
+			<div className="bottom-content">
+				<YouTube 
+					videoId="eFYUX9l-m5I"
+				/>
+				<div className="show-slide">
+					<div className="sliders-top">
+						<h2>Trending</h2>
+						<Link to="/trending" className='slider-show-more'>Show More</Link>
+					</div>
+					{/* Trending */}
+					<ShowsSlider type={'trending'} />
 				</div>
-				{/* Trending */}
-				<ShowsSlider type={'trending'} />
 			</div>
 			<Footer />
 		</div>

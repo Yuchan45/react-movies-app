@@ -118,6 +118,11 @@
     margin: 100px auto;
 }
 
+.bottom-content {
+    max-width: 1500px;
+    padding: 150px 15px 25px;
+}
+
 @media (min-width:480px) {
 
 }

@@ -98,8 +98,16 @@ const tmdbApi = {
 			const response = await axios.get(`${API_URL}/${type}/${id}`, {
 				params: {
 					api_key: API_KEY,
+					append_to_response: 'videos'
 				}
 			});
+			// 
+			// if (response.data.videos && response.data.videos) {
+			// 	const trailer = response.data.results.find((vid) => {
+			// 		vid.name === "Official Trailer"
+			// 	});
+			// 	setTrailer(trailer ? trailer : response.videos.results[0]);
+			// }
 			return response.data;
 		} catch (error) {
 			console.error(error);
