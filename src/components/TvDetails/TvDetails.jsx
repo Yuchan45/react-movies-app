@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import tmdbApi from "../../apis/tmdbApi";
 
 import CastSlider from '../CastSlider/CastSlider';
+import ShowsSlider from '../ShowsSlider/ShowsSlider';
 import Footer from '../Footer/Footer';
 
 function TvDetails() {
@@ -36,7 +37,7 @@ function TvDetails() {
 			</div>
 			<div className="movie-information-wrapper">
 				<div className="poster-image">
-					<img src="" alt="" />
+					<img src={tvShow.poster_path ? `${tmdbApi.IMAGE_PATH + tvShow.poster_path}` : '../../images/not-found-banner.png'} alt="" />
 				</div>
 				<div className="movie-data">
 					<div className="movie-data-top">
@@ -53,12 +54,17 @@ function TvDetails() {
 						<p>{tvShow ? tvShow.overview : 'No summary'}</p>
 					</div>
 					<div className="cast-section">
-                        <CastSlider type={"tv"} showId={id} />
+						<CastSlider type={"tv"} showId={id} />
 					</div>
 				</div>
 			</div>
-			<div>
-				<p></p>
+			<div className="show-slide">
+				<div className="sliders-top">
+					<h2>Trending</h2>
+					<Link to="/trending" className='slider-show-more'>Show More</Link>
+				</div>
+				{/* Trending */}
+				<ShowsSlider type={'trending'} />
 			</div>
 			<Footer />
 		</div>
