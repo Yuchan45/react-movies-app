@@ -5,9 +5,13 @@ import {Routes, Route} from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import Movies from './components/Movies/Movies';
+
 import MovieDetails from './components/MovieDetails/MovieDetails';
+import TvDetails from './components/TvDetails/TvDetails';
+
+import Movies from './components/Movies/Movies';
 import Tv from './components/Tv/Tv';
+
 import Trending from './components/Trending/Trending';
 import Search from './components/Search/Search';
 import NotFound from './components/NotFound';
@@ -30,9 +34,12 @@ function App() {
 
 				<Route path="/movie" element={<Movies />} />
 				<Route path="/movie/:id" element={<MovieDetails />} />
+
+				<Route path="/movie" element={<Movies />} />
+				<Route path="/movie/:id" element={<MovieDetails />} />
 				
-				<Route path="/tv" element={<Movies />} />
-				<Route path="/tv/:id" element={<Tv />} />
+				<Route path="/tv" element={<Tv />} />
+				<Route path="/tv/:id" element={<TvDetails />} />
 
 				<Route path="/trending" element={<Trending />} />
 				<Route path="/search" element={<Search />} />

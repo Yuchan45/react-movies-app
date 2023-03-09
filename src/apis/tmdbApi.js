@@ -105,9 +105,11 @@ const tmdbApi = {
 			console.error(error);
 		}
 	},
-	getCastingMembers: async(movieId) => {
+	getCastingMembers: async(type, id) => {
+		// Parameters: type can be (movie or tv). id is the movie's or tv's id.
+		const url = (type == 'movie') ? `${API_URL}/movie/${id}/credits` : `${API_URL}/tv/${id}/credits`;
 		try {
-			const response = await axios.get(`${API_URL}/movie/${movieId}/credits`, {
+			const response = await axios.get(url, {
 				params: {
 					api_key: API_KEY,
 				}

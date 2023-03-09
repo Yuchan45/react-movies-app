@@ -15,16 +15,16 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 
-function CastSlider({ movieId }) {
+function CastSlider({ type, showId }) {
     const [cast, setCast] = useState([]);
 
-    const fetchMovieCast = async (movieId) => {
-		const data = await tmdbApi.getCastingMembers(movieId);
+    const fetchCast = async (type, showId) => {
+		const data = await tmdbApi.getCastingMembers(type, showId);
 		setCast(data.cast.slice(0, 8));
 	};
 
     useEffect(() => {
-		fetchMovieCast(movieId);
+        fetchCast(type, showId);
 	}, []);
 
     const SlideImage = ({ actor }) => {

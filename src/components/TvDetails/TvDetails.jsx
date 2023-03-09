@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import "./MovieDetails.css";
+import "./TvDetails.css";
+
+import { Link } from "react-router-dom";
 
 import tmdbApi from "../../apis/tmdbApi";
 
 import CastSlider from '../CastSlider/CastSlider';
 import Footer from '../Footer/Footer';
 
-function MovieDetails() {
+function TvDetails() {
 	const { id } = useParams();
-	const [movie, setMovie] = useState({});
+	const [tvShow, setTvShow] = useState({});
 	
 
-	const fetchMovie = async (type, id) => {
+	const fetchTvShow = async (type, id) => {
 		const data = await tmdbApi.getById(type, id);
-		setMovie(data);
+		setTvShow(data);
 	};
 
 	useEffect(() => {
-		fetchMovie("movie", id);
+		fetchTvShow("tv", id);
 	}, []);
 
 
@@ -27,7 +29,7 @@ function MovieDetails() {
 		<div className="movie-details-container">
 			<div className="background-container">
 				<div className="movie-banner">
-					<img src={movie.backdrop_path ? `${tmdbApi.IMAGE_PATH + movie.backdrop_path}` : '../../images/not-found-banner.png'} alt="../../images/HBO_Max_Logo.png" />
+					<img src={tvShow.backdrop_path ? `${tmdbApi.IMAGE_PATH + tvShow.backdrop_path}` : '../../images/not-found-banner.png'} alt="../../images/HBO_Max_Logo.png" />
 				</div>
 				<div className="banner-overlay"></div>
 				<div className="banner-bottom"></div>
@@ -38,20 +40,20 @@ function MovieDetails() {
 				</div>
 				<div className="movie-data">
 					<div className="movie-data-top">
-						<h1>{movie ? movie.original_title || movie.name || movie.original_name : 'No Title'}</h1>
+						<h1>{tvShow ? tvShow.original_title || tvShow.name || tvShow.original_name : 'No Title'}</h1>
 						<ul>
 							{
 								// Por un tema de los ciclos de renderizado, hay que preguntar si el array existe antes.
 								// De no hacerlo, creo que trata de hacerf el map sobre el array aun no creado y muere.
-								movie.genres?.map((genre, i) => {
+								tvShow.genres?.map((genre, i) => {
 									return <li key={i}>{genre.name}</li>
 								})
 							}
 						</ul>
-						<p>{movie ? movie.overview : 'No summary'}</p>
+						<p>{tvShow ? tvShow.overview : 'No summary'}</p>
 					</div>
 					<div className="cast-section">
-						<CastSlider type={"movie"} showId={id} />
+                        <CastSlider type={"tv"} showId={id} />
 					</div>
 				</div>
 			</div>
@@ -63,4 +65,4 @@ function MovieDetails() {
 	);
 }
 
-export default MovieDetails;
+export default TvDetails;
